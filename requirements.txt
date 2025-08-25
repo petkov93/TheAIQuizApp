@@ -1,0 +1,10 @@
+certifi==2025.8.3
+charset-normalizer==3.4.3
+customtkinter==5.2.2
+darkdetect==0.8.0
+idna==3.10
+packaging==25.0
+pillow==11.3.0
+python-dotenv==1.1.1
+requests==2.32.4
+urllib3==2.5.0
