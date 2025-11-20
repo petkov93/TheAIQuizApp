@@ -1,4 +1,4 @@
-class QuestionData:
+class Question:
     # TODO implement this class instead of dictionary ;)
     def __init__(self, question_data: dict):
         self.question = question_data['question']

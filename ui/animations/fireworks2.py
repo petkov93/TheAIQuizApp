@@ -4,7 +4,7 @@ import math
 
 class Fireworks(tk.Canvas):
     def __init__(self, master, width=600, height=600, **kwargs):
-        super().__init__(master, width=width, height=height, bg='black', highlightthickness=0, **kwargs)
+        super().__init__(master, width=width, height=height, bg='white', highlightthickness=0, **kwargs)
         self.width = width
         self.height = height
         self.rockets = []

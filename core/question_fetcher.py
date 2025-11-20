@@ -1,43 +1,40 @@
-from dotenv import load_dotenv
-from tkinter.messagebox import showinfo, showerror
-from const import SYSTEM_PROMPT
-import threading
-import requests
 import os
+import threading
+from tkinter.messagebox import showerror
+
+import requests
+from dotenv import load_dotenv
+
+from data.quiz_fetcher_data import SYSTEM_PROMPT, openai_120b, groq_completions_url
 
 load_dotenv()
 
 
 class QuestionFetcher:
-    # too many mistakes/ wrong amount of questions / dumb answers, sometimes returns invalid JSON...
-    llama_8b: str = 'llama-3.1-8b-instant'
-    llama_70b: str = 'llama-3.3-70b-versatile'
-    # OpenAI models provides better quiz questions than llamas so far...
-    openai_preview_model_120b: str = 'openai/gpt-oss-120b'
-    openai_preview_model_20b: str = 'openai/gpt-oss-20b'
-
-    groq_completions_url: str = r'https://api.groq.com/openai/v1/chat/completions'
-    groq_api_key: str = os.environ.get('GROQ_API_KEY')
-
     def __init__(self, topic: str, num_of_questions: int = 5, callback=None):
         self.topic = topic
         self.num_of_questions = num_of_questions
         self.callback = callback
+
+        self.model = openai_120b
+        self.endpoint = groq_completions_url
+        self.api_key: str = os.environ.get('GROQ_API_KEY')
         self.history: list = [
             SYSTEM_PROMPT,
             {"role": "user",
-            "content": f"Generate me a quiz, on a {self.topic} topic, "
-                       f"with {self.num_of_questions} questions"}]
+             "content": f"Generate me a quiz, on a {self.topic} topic, "
+                        f"with {self.num_of_questions} questions"}]
 
+        # TODO remove this method call, call the method in the manager
         self.get_ai_response()
 
     def get_ai_response(self):
-        headers: dict = {
+        headers: dict[str, str] = {
             "Content-Type": "application/json",
-            "Authorization": f"Bearer {QuestionFetcher.groq_api_key}"}
+            "Authorization": f"Bearer {self.api_key}"}
 
-        payload: dict = {
-            "model": QuestionFetcher.openai_preview_model_120b,
+        payload: dict[str, str] = {
+            "model": self.model,
             # sends the last quiz topic + system prompt.
             "messages": self.history,
             "temperature": 0.6,
@@ -45,9 +42,8 @@ class QuestionFetcher:
 
         def call_api():
             try:
-                response = requests.post(QuestionFetcher.groq_completions_url, headers=headers, json=payload)
+                response = requests.post(self.endpoint, headers=headers, json=payload)
                 response.raise_for_status()
-                # print(response.status_code)
                 data = response.json()
                 message = data['choices'][0]['message']['content']
             except Exception as e:
@@ -60,6 +56,3 @@ class QuestionFetcher:
 
         # calling it in a thread so it doesn't freeze the UI
         threading.Thread(target=call_api).start()
-
-
-

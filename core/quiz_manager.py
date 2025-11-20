@@ -1,10 +1,10 @@
 import json
 
-from fetcher import QuestionFetcher
+from core.question_fetcher import QuestionFetcher
 
 
 class QuizManager:
-    def __init__(self, total_questions):
+    def __init__(self, total_questions: int):
         self.topic = 'No topic selected.'
         self.score = 0
         self.all_questions = []
@@ -13,6 +13,7 @@ class QuizManager:
         self.total_questions = total_questions
         self.answered = set()
 
+    # TODO remove the class from here, put it in __init__, create the obj in main.py
     def fetch_questions(self, on_complete):
         QuestionFetcher(topic=self.topic,
                         num_of_questions=self.total_questions,
@@ -25,7 +26,7 @@ class QuizManager:
         if callable(on_complete):
             on_complete()
 
-    def add_points(self, points: int = 1):
+    def add_point(self, points: int = 1):
         self.score += points
 
     def record_answer(self, question_index: int, selected_index: int) -> bool:
@@ -41,7 +42,7 @@ class QuizManager:
         is_correct = selected_index == q['answer']
 
         if is_correct:
-            self.add_points(1)
+            self.add_point()
         else:
             self.wrong_answers.append({
                 "index": question_index,

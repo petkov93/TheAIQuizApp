@@ -1,9 +1,20 @@
-from frames import MainWindow
-from manager import QuizManager
+from core.controller import QuizController
+from core.main_app_window import MainWindow
+from core.quiz_manager import QuizManager
+from ui.frames.loading_frame import LoadingFrame
+from ui.frames.questions_frame import QuestionsFrame
+from ui.frames.results_frame import ResultsFrame
+from ui.frames.start_quiz_frame import StartQuizFrame
+from ui.frames.welcome_frame import WelcomeFrame
+
+app_frames = [WelcomeFrame, LoadingFrame, StartQuizFrame, QuestionsFrame, ResultsFrame]
+
+manager = QuizManager(total_questions=10)
+controller = QuizController(manager)
+app = MainWindow(controller, app_frames)
 
 if __name__ == '__main__':
-    app = MainWindow(QuizManager(total_questions=10))
-    app.mainloop()
+    app.start()
 
 # tkinter colors at:
 # https://cs111.wellesley.edu/archive/cs111_fall14/public_html/labs/lab12/tkintercolor.html

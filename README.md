@@ -79,11 +79,11 @@ TOPICS = [
 
 Here’s what the app looks like:
 
-![Step 1](Sample_Images/1.png)  
-![Step 2](Sample_Images/2.png)  
-![Step 3](Sample_Images/3.png)  
-![Step 4](Sample_Images/4.png)  
-![Step 5](Sample_Images/5.png)  
+![Step 1](assets/sample_app_images/1.png)  
+![Step 2](assets/sample_app_images/2.png)  
+![Step 3](assets/sample_app_images/3.png)  
+![Step 4](assets/sample_app_images/4.png)  
+![Step 5](assets/sample_app_images/5.png)  
 
 ---
 
