@@ -1,4 +1,4 @@
-from tkinter.messagebox import showinfo, showerror
+from tkinter.messagebox import showinfo, showerror, showwarning
 
 from customtkinter import CTkFrame, CTkButton
 
@@ -10,15 +10,33 @@ from ui.question_frame.question_frame import QuestionFrame
 class QuestionsFrame(BaseFrame):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.current_index = 0
+        self.question_frames: list[QuestionFrame] = []
+        self.buttons_frame: CTkFrame | None = None
+        self.buttons: list[CTkButton] = []
+        self.finish_button: SubmitButton | None = None
+        self.current_index: int = 0
+
+        self.load_widgets()
+
+    def load_widgets(self):
+        self.load_all_questions()
+        self.load_question_buttons()
+        self.show_question()
+        # TODO make the btn disabled if there are unanswered questions
+        self.finish_button = SubmitButton(
+            self, text='Finish Quiz', command=self.on_finish).place(relx=0.5, rely=0.95, anchor='s')
+
+    def load_all_questions(self):
         self.question_frames = {index: QuestionFrame(self, index, question, on_answer=self.handle_answer) for
                                 index, question in
                                 enumerate(self.quiz_manager.all_questions)}
+
         for question in self.question_frames.values():
             question.place(relx=0, rely=0, relwidth=1, relheight=.8)
+
+    def load_question_buttons(self):
         self.buttons_frame = CTkFrame(self)
         self.buttons_frame.place(relx=0.5, rely=0.85, anchor='s')
-        self.show_question()
 
         self.buttons = {
             idx: CTkButton(
@@ -29,9 +47,6 @@ class QuestionsFrame(BaseFrame):
 
         for idx, btn in self.buttons.items():
             btn.grid(row=0, column=idx, padx=1, pady=1, ipadx=1, ipady=1)
-        # TODO make the btn disabled if there are unanswered questions
-        self.finish_button = SubmitButton(
-            self, text='Finish Quiz', command=self.on_finish).place(relx=0.5, rely=0.95, anchor='s')
 
     # TODO add lazy loading here also / see MainWindow
     def show_question(self, index=0):
@@ -50,18 +65,22 @@ class QuestionsFrame(BaseFrame):
 
     def handle_answer(self, q_index: int, selected_index: int):
         """Called by a QuestionFrame when user hits 'Submit answer'."""
-        is_correct = self.quiz_manager.record_answer(q_index, selected_index)
         q = self.quiz_manager.all_questions[q_index]
+        try:
+            is_correct = self.quiz_manager.record_answer(q_index, selected_index)
+        except ValueError as e:
+            showwarning(title=str(e), message=str(e))
+            return
 
         if is_correct:
-            showinfo(title='Correct!', message=f'{q["explanation"]}')
+            showinfo(title='Correct!', message=f'{q.explanation}')
         else:
             showerror(
                 title='Wrong answer!',
                 message=(
-                    f'You selected: {selected_index}\n'
-                    f'Correct: {q["answer"]}\n'
-                    f'{q["explanation"]}'
+                    f'You selected:\n{selected_index}) {q.options[selected_index]}\n\n'
+                    f'Correct:\n{q.correct_answer}) {q.options[q.correct_answer]}\n\n'
+                    f'{q.explanation}\n'
                 )
             )
         self.go_to_next_or_finish()
