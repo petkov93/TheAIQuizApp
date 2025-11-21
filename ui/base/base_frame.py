@@ -1,3 +1,4 @@
+from abc import ABC, abstractmethod
 from collections.abc import Callable
 
 from customtkinter import CTkFrame
@@ -6,7 +7,7 @@ from core.controller import QuizController
 from core.quiz_manager import QuizManager
 
 
-class BaseFrame(CTkFrame):
+class BaseFrame(CTkFrame, ABC):
     def __init__(self, master, controller: QuizController, quiz_manager: QuizManager, on_next_frame: Callable, *args,
                  **kwargs):
         super().__init__(master, fg_color='transparent', *args)
@@ -16,3 +17,7 @@ class BaseFrame(CTkFrame):
         self.topic_var = kwargs['topic_var']
         self.score_var = kwargs['score_var']
         self.total_questions = kwargs['total_questions']
+
+    @abstractmethod
+    def load_widgets(self):
+        pass

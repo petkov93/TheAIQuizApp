@@ -1,17 +1,20 @@
-from customtkinter import CTkLabel
-
 from ui.base.base_frame import BaseFrame
+from ui.base_widgets.big_label import BigLabel
+from ui.base_widgets.mid_label import MidLabel
 from ui.base_widgets.submit_button import SubmitButton
 
 
 class ResultsFrame(BaseFrame):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        CTkLabel(self, text='Congrats. You finished the quiz.', font=('Aerial', 20))
-        CTkLabel(self, textvariable=self.topic_var, font=('Aerial', 16, 'bold'))
-        CTkLabel(self, text=f'Total questions: {self.total_questions}', font=('Aerial', 20))
-        CTkLabel(self, text='Your score:', font=('Aerial', 20))
-        CTkLabel(self, textvariable=self.score_var, font=('Aerial', 16, 'bold'))
+        self.load_widgets()
+
+    def load_widgets(self):
+        BigLabel(self, text='Congrats. You finished the quiz.')
+        MidLabel(self, textvariable=self.topic_var)
+        MidLabel(self, text=f'Total questions: {self.total_questions}')
+        MidLabel(self, text='Your score:')
+        MidLabel(self, textvariable=self.score_var)
         SubmitButton(self, text='Start new quiz', command=self.on_restart)
 
         for child in self.winfo_children():

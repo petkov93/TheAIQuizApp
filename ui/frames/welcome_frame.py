@@ -1,4 +1,4 @@
-from customtkinter import CTkLabel, CTkFrame, CTkButton
+from customtkinter import CTkFrame
 
 from data.quiz_topics import TOPICS
 from ui.base.base_frame import BaseFrame
@@ -12,7 +12,12 @@ from ui.base_widgets.topic_button import TopicButton
 class WelcomeFrame(BaseFrame):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.buttons_frame: CTkFrame | None = None
+        self.topic_buttons: list[TopicButton] = []
 
+        self.load_widgets()
+
+    def load_widgets(self):
         BigLabel(self, text='The AI Quiz app v1\nMade by Petko Petkov').pack(pady=(20, 5))
         MidLabel(self, text='Select a topic below:').pack(pady=(0, 5))
         self.buttons_frame = CTkFrame(self)
@@ -41,3 +46,4 @@ class WelcomeFrame(BaseFrame):
         # starts loading screen, when api request is ready -> next frame again
         self.quiz_manager.fetch_questions(self.on_next_frame)
         self.on_next_frame()
+
