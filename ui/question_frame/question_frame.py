@@ -3,20 +3,21 @@ from tkinter.messagebox import showerror
 
 from customtkinter import CTkFrame, CTkLabel, CTkRadioButton
 
+from core.question import Question
 from helpers.utils import wrap_length
 from ui.base_widgets.submit_button import SubmitButton
 
 
 class QuestionFrame(CTkFrame):
-    def __init__(self, master, index, question: dict, on_answer):
+    def __init__(self, master, index, question: Question, on_answer):
         super().__init__(master)
         self.index = index
         self.idx = f'{index + 1}'
-        self.question = f"{self.idx}. {question['question']}"
-        self.options = question['options']
-        self.correct_answer = question['answer']
-        self.explanation = question['explanation']
-        self.user_answer = IntVar(value=-1)
+        self.question = f"{self.idx}. {question.question}"
+        self.options = question.options
+        self.correct_answer = question.correct_answer
+        self.explanation = question.explanation
+        self.user_answer = IntVar(value=question.user_answer)
         self.on_answer = on_answer
 
         CTkLabel(self, text=self.question, font=('Courier New', 15), wraplength=500)
@@ -29,7 +30,6 @@ class QuestionFrame(CTkFrame):
         options = {
             idx: CTkRadioButton(self.options_frame,
                                 text=wrap_length(option, wrap_count=40),
-                                # text=option,
                                 value=idx,
                                 variable=self.user_answer,
                                 font=('Courier New', 15)
