@@ -62,4 +62,5 @@ class MainWindow(CTk):
 
     def start(self) -> None:
         """Starts the app mainloop"""
+        self.show_frame(0)
         self.mainloop()
