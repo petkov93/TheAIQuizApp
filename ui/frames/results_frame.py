@@ -10,11 +10,11 @@ class ResultsFrame(BaseFrame):
         self.load_widgets()
 
     def load_widgets(self):
+        score, total = self.controller.get_final_score()
         BigLabel(self, text='Congrats. You finished the quiz.')
         MidLabel(self, textvariable=self.topic_var)
-        MidLabel(self, text=f'Total questions: {self.total_questions}')
-        MidLabel(self, text='Your score:')
-        MidLabel(self, textvariable=self.score_var)
+        MidLabel(self, text=f'Total questions: {total}')
+        MidLabel(self, text=f'Your score: {score}')
         SubmitButton(self, text='Start new quiz', command=self.on_restart)
 
         for child in self.winfo_children():
@@ -22,5 +22,3 @@ class ResultsFrame(BaseFrame):
 
     def on_restart(self):
         self.controller.restart_quiz()
-        self.master.reset_frames()
-        self.on_next_frame(0)
