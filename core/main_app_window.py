@@ -2,7 +2,6 @@ from tkinter import StringVar, IntVar
 
 from customtkinter import CTk, set_appearance_mode
 
-from core.controller import QuizController
 from ui.base.base_frame import BaseFrame
 
 # set_appearance_mode('light')
