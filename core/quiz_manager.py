@@ -65,9 +65,12 @@ class QuizManager:
 
     def _handle_api_response(self, raw_data: str, on_complete: Callable[[], None]) -> None:
         """Converts the raw JSON to Question objects, on_complete moves to the next frame"""
-        questions = json.loads(raw_data)['questions']
-        for question in questions:
-            self.all_questions.append(Question(question))
+        data = json.loads(raw_data)
+
+        questions = data['questions']
+        for q in questions:
+            self._questions.append(Question(question_data=q))
+
         if callable(on_complete):
             on_complete()
 
