@@ -26,7 +26,8 @@ class MainWindow(CTk):
         self.question_number_var = IntVar(value=1)
         self.total_questions_var = IntVar(value=0)
 
-        self.show_frame(0)
+    def add_controller(self, controller):
+        self.controller = controller
 
     def show_frame(self, index: int):
         """Creates a frame if not already created, and raises it on top of the stack"""
