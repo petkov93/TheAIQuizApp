@@ -12,7 +12,7 @@ set_appearance_mode('dark')
 class MainWindow(CTk):
     def __init__(self, controller: QuizController, frame_classes: list[type[BaseFrame]]):
         super().__init__()
-        self.controller = controller
+        self.controller = None
         self.frame_classes = frame_classes
 
         self.title('The AI Quiz')
