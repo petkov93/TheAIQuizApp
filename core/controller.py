@@ -6,12 +6,11 @@ class QuizController:
         self.quiz_manager = manager
         self.frame_index = 0
 
-    def next_frame_index(self, max_frames: int) -> int:
-        self.frame_index = (self.frame_index + 1) % max_frames
-        return self.frame_index
-
-    def go_to_frame(self, index):
-        self.frame_index = index
+    def next_frame(self) -> None:
+        max_index: int = len(self.window.frame_classes) - 1
+        self._frame_index = min(max_index, self._frame_index + 1)
+        self.update_shared_vars()
+        self.window.show_frame(self._frame_index)
 
     def restart_quiz(self):
         self.quiz_manager.restart()
