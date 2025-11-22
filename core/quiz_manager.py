@@ -55,6 +55,13 @@ class QuizManager:
         if 0 <= index < len(self._questions):
             self._current_index = index
 
+    def get_final_score(self) -> tuple[int, int]:
+        return self._score, self.total_questions
+
+    def get_unanswered_questions(self):
+        return [idx + 1 for idx in range(len(self._questions)) if idx not in self._answered_indices]
+
+    # load questions from AI API
     # TODO remove the class from here, put it in __init__, create the obj in main.py
     def fetch_questions(self, on_complete):
         QuestionFetcher(topic=self.topic,
