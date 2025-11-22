@@ -9,9 +9,10 @@ from ui.frames.welcome_frame import WelcomeFrame
 
 app_frames = [WelcomeFrame, LoadingFrame, StartQuizFrame, QuestionsFrame, ResultsFrame]
 
-manager = QuizManager(total_questions=10)
-controller = QuizController(manager)
-app = MainWindow(controller, app_frames)
+manager = QuizManager()
+app = MainWindow(app_frames)
+controller = QuizController(manager, app)
+app.add_controller(controller)
 
 if __name__ == '__main__':
     app.start()

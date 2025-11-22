@@ -1,6 +1,7 @@
-import tkinter as tk
-import random
 import math
+import random
+import tkinter as tk
+
 
 class Fireworks(tk.Canvas):
     def __init__(self, master, width=600, height=600, **kwargs):
@@ -53,7 +54,8 @@ class Fireworks(tk.Canvas):
             if not rocket["exploded"]:
                 rocket["y"] -= 10  # speed upward
                 # Draw rocket as small circle
-                self.create_oval(rocket["x"]-3, rocket["y"]-3, rocket["x"]+3, rocket["y"]+3, fill=rocket["color"], outline="")
+                self.create_oval(rocket["x"] - 3, rocket["y"] - 3, rocket["x"] + 3, rocket["y"] + 3,
+                                 fill=rocket["color"], outline="")
                 if rocket["y"] <= rocket["target_y"]:
                     rocket["exploded"] = True
                     self.explode(rocket)
@@ -73,7 +75,7 @@ class Fireworks(tk.Canvas):
                 alpha = int(255 * (p["life"] / 50))
                 color = p["color"]
                 # Draw particle
-                self.create_oval(p["x"], p["y"], p["x"]+size, p["y"]+size, fill=color, outline="")
+                self.create_oval(p["x"], p["y"], p["x"] + size, p["y"] + size, fill=color, outline="")
 
                 # Secondary explosion triggers when life halfway done
                 if p["secondary_explosion"] and p["life"] == int(p["life"] / 2):
@@ -92,7 +94,7 @@ class Fireworks(tk.Canvas):
         y = parent_particle["y"]
         color = parent_particle["color"]
         for i in range(num_particles):
-            angle = random.uniform(0, 2*math.pi)
+            angle = random.uniform(0, 2 * math.pi)
             speed = random.uniform(1, 3)
             dx = math.cos(angle) * speed
             dy = math.sin(angle) * speed
@@ -107,6 +109,7 @@ class Fireworks(tk.Canvas):
                 "size": random.randint(1, 3),
                 "secondary_explosion": False
             })
+
 
 if __name__ == "__main__":
     root = tk.Tk()

@@ -1,6 +1,6 @@
-import tkinter as tk
-import random
 import math
+import random
+import tkinter as tk
 
 
 # TODO add the fireworks if user get all questions correctly
@@ -57,6 +57,7 @@ class Fireworks(tk.Canvas):
         if self.particles:
             # noinspection PyTypeChecker
             self.after(30, self.animate)
+
 
 # Demo
 if __name__ == "__main__":
