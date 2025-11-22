@@ -63,9 +63,9 @@ class QuizManager:
 
     # load questions from AI API
     # TODO remove the class from here, put it in __init__, create the obj in main.py
-    def fetch_questions(self, on_complete):
-        QuestionFetcher(topic=self.topic,
-                        num_of_questions=self.total_questions,
+    def load_questions(self, topic: str, num_questions: int, on_complete: Callable[[], None]) -> None:
+        QuestionFetcher(topic=topic,
+                        num_of_questions=num_questions,
                         callback=lambda raw:
                         self._handle_api_response(raw, on_complete)
                         )
