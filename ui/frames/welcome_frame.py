@@ -44,8 +44,11 @@ class WelcomeFrame(BaseFrame):
         if self.topic_var.get() == 'No topic selected.':
             return
         # starts loading screen, when api request is ready -> next frame again
-        self.quiz_manager.fetch_questions(self.on_next_frame)
-        self.on_next_frame()
+        self.controller.next_frame()
+        self.controller.quiz_manager.load_questions(
+            self.topic_var.get(),
+            num_questions=10,
+            on_complete=self.on_questions_loaded)
 
     def on_questions_loaded(self):
         self.controller.next_frame()
