@@ -81,40 +81,6 @@ class QuizManager:
         if callable(on_complete):
             on_complete()
 
-    def add_point(self):
-        self.score += 1
-
-    def record_answer(self, question_index: int, selected_index: int) -> bool:
-        """
-        Returns True if correct, False if wrong.
-        Ignores re-submissions of the same question
-        """
-        q = self.all_questions[question_index]
-        if q.is_answered:
-            raise ValueError("Already Answered!")
-
-        q.is_answered = True
-        if q.correct_answer == selected_index:
-            self.add_point()
-            return True
-        return False
-        #
-        # is_correct = selected_index == q['answer']
-        #
-        # if is_correct:
-        #     self.add_point()
-        # else:
-        #     self.wrong_answers.append({
-        #         "index": question_index,
-        #         "selected": selected_index,
-        #         "correct": q['answer'],
-        #         "explanation": q['explanation'],
-        #         "question": q['question'],
-        #         "options": q['options'],
-        #     })
-        # self.answered.add(question_index)
-        # return is_correct
-
     def restart(self):
         self._current_index = 0
         self._score = 0
