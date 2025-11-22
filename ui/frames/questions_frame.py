@@ -1,3 +1,5 @@
+from tkinter.messagebox import askokcancel
+
 from customtkinter import CTkFrame
 
 from ui.base.base_frame import BaseFrame
@@ -30,7 +32,7 @@ class QuestionsFrame(BaseFrame):
 
         self.finish_button = SubmitButton(self,
                                           text='Finish Quiz',
-                                          # command=self.on_finish
+                                          command=self._on_finish
                                           )
         self.finish_button.place(relx=0.5, rely=0.95, anchor='s')
 
@@ -42,3 +44,17 @@ class QuestionsFrame(BaseFrame):
     def refresh(self):
         pass
 
+    def _on_finish(self):
+        """Callback method for the finish button,
+        if there are unanswered questions -> ask user for confirmation to end the quiz."""
+        unanswered = self.controller.quiz_manager.get_unanswered_questions()
+        is_finish = True
+        if unanswered:
+            is_finish = askokcancel(
+                title='Are you sure ?!',
+                message=f'You still have {len(unanswered)} questions left.\n'
+                        f"Questions [{', '.join(str(q) for q in unanswered)}] still await your answer..")
+        if not is_finish:
+            return
+
+        self.controller.next_frame()
