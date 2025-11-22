@@ -109,8 +109,7 @@ class QuizManager:
         # return is_correct
 
     def restart(self):
-        self.topic = 'No topic selected.'
-        self.score = 0
-        self.all_questions = []
-        self.wrong_answers = []
-        self.answered = set()
+        self._current_index = 0
+        self._score = 0
+        self._answered_indices.clear()
+        self._questions = []
