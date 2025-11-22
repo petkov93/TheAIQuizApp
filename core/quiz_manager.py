@@ -67,7 +67,7 @@ class QuizManager:
         QuestionFetcher(topic=self.topic,
                         num_of_questions=self.total_questions,
                         callback=lambda raw:
-                        self._on_api_callback(raw, on_complete)
+                        self._handle_api_response(raw, on_complete)
                         )
 
     def _handle_api_response(self, raw_data: str, on_complete: Callable[[], None]) -> None:
