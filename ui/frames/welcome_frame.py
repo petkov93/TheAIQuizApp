@@ -38,7 +38,7 @@ class WelcomeFrame(BaseFrame):
             btn.grid(row=row, column=col, padx=5, pady=5)
 
     def set_topic(self, topic):
-        self.quiz_manager.topic = topic
+        self.topic_var.set(topic)
 
     def generate_quiz(self):
         if self.topic_var.get() == 'No topic selected.':
