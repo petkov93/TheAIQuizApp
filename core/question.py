@@ -7,3 +7,7 @@ class Question:
         self.explanation = question_data['explanation']
         self.is_answered = False
 
+    def check_answer(self, selected_index) -> bool:
+        """Checks if the selected answer is the same as the correct answer. Returns True or False"""
+        self.user_answer = selected_index
+        return self.user_answer == self.correct_answer
