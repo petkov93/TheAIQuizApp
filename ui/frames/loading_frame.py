@@ -24,12 +24,13 @@ class LoadingFrame(BaseFrame):
 
     def animate_gif(self, delay=30) -> None:
         def update(idx=0):
+            if not self.is_frame_on_top():
+                return
             self.gif_label.configure(image=self.gif_frames[idx])
             next_idx = (idx + 1) % len(self.gif_frames)
-            self.gif_label.after(delay, update, next_idx)
+            self.after(delay, update, next_idx)
 
-        if self.is_frame_on_top():
-            update()
+        update()
 
     def is_frame_on_top(self) -> bool:
         return self == self.master.winfo_children()[-1]
