@@ -3,11 +3,12 @@ from tkinter.messagebox import showerror, showinfo, showwarning
 
 from customtkinter import CTkFrame, CTkLabel
 
-from helpers.utils import wrap_length
 from ui.base.base_frame import BaseFrame
 from ui.base_widgets.radio_button import RadioButton
 from ui.base_widgets.small_label import SmallLabel
 from ui.base_widgets.submit_button import SubmitButton
+
+options_mapper = {0: 'a', 1: 'b', 2: 'c', 3: 'd'}
 
 
 class QuestionFrame(BaseFrame):
@@ -24,13 +25,14 @@ class QuestionFrame(BaseFrame):
                   f"of {manager.total_questions}  •  "
                   f"Score: {manager.score}")
         SmallLabel(self, text=header)
-        CTkLabel(self, text=question.question, font=('Courier New', 15), wraplength=500)
+        CTkLabel(self, text=question.question, font=('Courier New', 15), wraplength=500, anchor='w', justify='left')
         options_frame = CTkFrame(self, fg_color='transparent')
 
         for idx, option in enumerate(question.options):
+            text = f'{options_mapper[idx]}) {option}'
             RadioButton(
                 options_frame,
-                text=wrap_length(option, wrap_count=40),
+                text=text,
                 value=idx,
                 variable=self.radio_var,
             ).grid(row=idx, column=0, sticky='w', padx=20, pady=5)
@@ -48,7 +50,6 @@ class QuestionFrame(BaseFrame):
         self.radio_var.set(-1)
         self.load_widgets()
 
-
     def on_submit(self):
         selected = self.radio_var.get()
         if selected == -1:
@@ -65,15 +66,15 @@ class QuestionFrame(BaseFrame):
         question = self.controller.get_current_question()
 
         if is_correct:
-            showinfo(title='Correct!', message=f'You selected:\n{selected}) {question.options[selected]}\n\n'
-                                               f'{question.explanation}')
+            showinfo(title='Correct!', message=f'You selected:\n{options_mapper[selected]}) {question.options[selected]}\n\n'
+                                               f'Explanation:\n{question.explanation}')
         else:
             showerror(
                 title='Wrong answer!',
                 message=(
-                    f'You selected:\n{selected}) {question.options[selected]}\n\n'
-                    f'Correct:\n{question.correct_answer}) {question.options[question.correct_answer]}\n\n'
-                    f'{question.explanation}\n'
+                    f'You selected:\n{options_mapper[selected]}) {question.options[selected]}\n\n'
+                    f'Correct:\n{options_mapper[question.correct_answer]}) {question.options[question.correct_answer]}\n\n'
+                    f'Explanation:\n{question.explanation}\n'
                 )
             )
 
