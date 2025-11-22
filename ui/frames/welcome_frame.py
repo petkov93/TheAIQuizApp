@@ -47,3 +47,5 @@ class WelcomeFrame(BaseFrame):
         self.quiz_manager.fetch_questions(self.on_next_frame)
         self.on_next_frame()
 
+    def on_questions_loaded(self):
+        self.controller.next_frame()
