@@ -1,4 +1,5 @@
 import json
+from collections.abc import Callable
 
 from core.question import Question
 from core.question_fetcher import QuestionFetcher
