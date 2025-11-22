@@ -1,10 +1,12 @@
+from core.main_app_window import MainWindow
 from core.quiz_manager import QuizManager
 
 
 class QuizController:
-    def __init__(self, manager: QuizManager):
+    def __init__(self, manager: QuizManager, window: MainWindow | None):
         self.quiz_manager = manager
-        self.frame_index = 0
+        self.window = window
+        self._frame_index = 0
 
     def next_frame(self) -> None:
         max_index: int = len(self.window.frame_classes) - 1
