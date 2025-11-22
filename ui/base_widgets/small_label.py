@@ -1,4 +1,4 @@
-from customtkinter import CTkLabel, CTkFont
+from customtkinter import CTkLabel
 
 from ui.styles.fonts import small_font
 
