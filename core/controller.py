@@ -13,6 +13,8 @@ class QuizController:
         self.window.show_frame(self._frame_index)
 
     def restart_quiz(self):
+        self._frame_index = 0
+        self.window.restart()
         self.quiz_manager.restart()
 
     def get_current_question(self):
