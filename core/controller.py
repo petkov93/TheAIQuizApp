@@ -22,6 +22,9 @@ class QuizController:
     def get_current_question(self):
         return self.quiz_manager.current_question
 
+    def get_user_answer(self):
+        return self.quiz_manager.current_question.user_answer
+
     def get_total_questions(self):
         return self.quiz_manager.total_questions
 
