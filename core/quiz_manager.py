@@ -77,8 +77,7 @@ class QuizManager:
 
         questions = data['questions']
         for q in questions:
-            self._questions.append(Question(question_data=q))
-
+            self._questions.append((Question.from_dict(q)))
         if callable(on_complete):
             on_complete()
 
