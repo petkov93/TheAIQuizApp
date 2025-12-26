@@ -1,0 +1,224 @@
+{
+  "questions": [
+    {
+      "question": "What is the capital city of Canada?",
+      "options": [
+        "Toronto",
+        "Ottawa",
+        "Vancouver",
+        "Montreal"
+      ],
+      "answer": 1,
+      "explanation": "Ottawa is the capital of Canada, not the larger city Toronto."
+    },
+    {
+      "question": "Which city serves as the capital of Australia?",
+      "options": [
+        "Sydney",
+        "Melbourne",
+        "Canberra",
+        "Perth"
+      ],
+      "answer": 2,
+      "explanation": "Canberra was selected as a compromise location and is the federal capital."
+    },
+    {
+      "question": "What is the capital of Brazil?",
+      "options": [
+        "Rio de Janeiro",
+        "S\u00e3o Paulo",
+        "Bras\u00edlia",
+        "Salvador"
+      ],
+      "answer": 2,
+      "explanation": "Bras\u00edlia was purpose\u2011built in the 1960s to be Brazil's capital."
+    },
+    {
+      "question": "Which of these is the capital of Kenya?",
+      "options": [
+        "Nairobi",
+        "Mombasa",
+        "Kisumu",
+        "Nakuru"
+      ],
+      "answer": 0,
+      "explanation": "Nairobi is Kenya's largest city and its political capital."
+    },
+    {
+      "question": "What is the capital city of Thailand?",
+      "options": [
+        "Phuket",
+        "Bangkok",
+        "Chiang Mai",
+        "Pattaya"
+      ],
+      "answer": 1,
+      "explanation": "Bangkok is the official capital and the economic hub of Thailand."
+    },
+    {
+      "question": "Identify the capital of Turkey.",
+      "options": [
+        "Istanbul",
+        "Ankara",
+        "Izmir",
+        "Bursa"
+      ],
+      "answer": 1,
+      "explanation": "Ankara became the capital in 1923, while Istanbul remains the cultural heart."
+    },
+    {
+      "question": "Which city is the capital of Nigeria?",
+      "options": [
+        "Lagos",
+        "Abuja",
+        "Kano",
+        "Port Harcourt"
+      ],
+      "answer": 1,
+      "explanation": "Abuja was chosen as the capital in 1991 to replace Lagos."
+    },
+    {
+      "question": "What is the capital of New Zealand?",
+      "options": [
+        "Auckland",
+        "Wellington",
+        "Christchurch",
+        "Hamilton"
+      ],
+      "answer": 1,
+      "explanation": "Wellington, located at the southern tip of the North Island, is the capital."
+    },
+    {
+      "question": "The capital of South Korea is:",
+      "options": [
+        "Seoul",
+        "Busan",
+        "Incheon",
+        "Daegu"
+      ],
+      "answer": 0,
+      "explanation": "Seoul is the political, economic, and cultural center of South Korea."
+    },
+    {
+      "question": "Which city serves as the capital of Egypt?",
+      "options": [
+        "Cairo",
+        "Alexandria",
+        "Giza",
+        "Luxor"
+      ],
+      "answer": 0,
+      "explanation": "Cairo has been Egypt's capital since ancient times."
+    },
+    {
+      "question": "What is the capital of Argentina?",
+      "options": [
+        "C\u00f3rdoba",
+        "Rosario",
+        "Mendoza",
+        "Buenos Aires"
+      ],
+      "answer": 3,
+      "explanation": "Buenos Aires is the capital and largest city of Argentina."
+    },
+    {
+      "question": "Identify the capital of Sweden.",
+      "options": [
+        "Gothenburg",
+        "Uppsala",
+        "Malm\u00f6",
+        "Stockholm"
+      ],
+      "answer": 3,
+      "explanation": "Stockholm is Sweden's capital and its most populous city."
+    },
+    {
+      "question": "Which city is the capital of Kazakhstan?",
+      "options": [
+        "Almaty",
+        "Nur-Sultan",
+        "Shymkent",
+        "Aktobe"
+      ],
+      "answer": 1,
+      "explanation": "Nur\u2011Sultan (formerly Astana) became the capital in 1997, replacing Almaty."
+    },
+    {
+      "question": "What is the capital of Portugal?",
+      "options": [
+        "Porto",
+        "Lisbon",
+        "Braga",
+        "Coimbra"
+      ],
+      "answer": 1,
+      "explanation": "Lisbon is the historic and political capital of Portugal."
+    },
+    {
+      "question": "The capital of Ethiopia is:",
+      "options": [
+        "Mekelle",
+        "Gondar",
+        "Addis Ababa",
+        "Dire Dawa"
+      ],
+      "answer": 2,
+      "explanation": "Addis Ababa is the seat of government and the African Union headquarters."
+    },
+    {
+      "question": "Which city serves as the capital of Mexico?",
+      "options": [
+        "Guadalajara",
+        "Monterrey",
+        "Mexico City",
+        "Puebla"
+      ],
+      "answer": 2,
+      "explanation": "Mexico City is the densely populated capital of the country."
+    },
+    {
+      "question": "Identify the capital of Iceland.",
+      "options": [
+        "Reykjav\u00edk",
+        "Akureyri",
+        "Keflav\u00edk",
+        "Hafnarfj\u00f6r\u00f0ur"
+      ],
+      "answer": 0,
+      "explanation": "Reykjav\u00edk is the northernmost capital of a sovereign state."
+    },
+    {
+      "question": "What is the capital of Saudi Arabia?",
+      "options": [
+        "Jeddah",
+        "Riyadh",
+        "Mecca",
+        "Medina"
+      ],
+      "answer": 1,
+      "explanation": "Riyadh has been the political capital since the kingdom's foundation."
+    },
+    {
+      "question": "Which city is the capital of Vietnam?",
+      "options": [
+        "Ho Chi Minh City",
+        "Da Nang",
+        "Hanoi",
+        "Hai Phong"
+      ],
+      "answer": 2,
+      "explanation": "Hanoi became the capital after the reunification of Vietnam in 1976."
+    },
+    {
+      "question": "The capital of Norway is:",
+      "options": [
+        "Bergen",
+        "Stavanger",
+        "Trondheim",
+        "Oslo"
+      ],
+      "answer": 3,
+      "explanation": "Oslo is Norway's capital and its largest urban area."
+    }
+  ]
+}

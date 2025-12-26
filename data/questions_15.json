@@ -1,0 +1,169 @@
+{
+  "questions": [
+    {
+      "question": "What is the primary purpose of the Bitcoin blockchain?",
+      "options": [
+        "To store user passwords securely",
+        "To provide a decentralized ledger of transactions",
+        "To host decentralized applications",
+        "To mine new cryptocurrencies"
+      ],
+      "answer": 1,
+      "explanation": "The blockchain records all Bitcoin transactions in a decentralized, immutable ledger."
+    },
+    {
+      "question": "Which cryptographic hash function does Bitcoin use for proof-of-work?",
+      "options": [
+        "SHA-256",
+        "MD5",
+        "RIPEMD-160",
+        "Keccak-256"
+      ],
+      "answer": 0,
+      "explanation": "Bitcoin's proof-of-work algorithm relies on double SHA-256 hashing."
+    },
+    {
+      "question": "In Bitcoin, what is a UTXO?",
+      "options": [
+        "User Transaction Xchange Object",
+        "Unspent Transaction Output",
+        "Universal Token eXchange Operation",
+        "Unified Transaction Execution Order"
+      ],
+      "answer": 1,
+      "explanation": "UTXO stands for Unspent Transaction Output, representing spendable Bitcoin amounts."
+    },
+    {
+      "question": "Which Python library is commonly used to interact with the Bitcoin network?",
+      "options": [
+        "requests",
+        "bitcoinlib",
+        "numpy",
+        "pandas"
+      ],
+      "answer": 1,
+      "explanation": "bitcoinlib provides tools for creating wallets, transactions, and interfacing with the network."
+    },
+    {
+      "question": "What does the term 'halving' refer to in Bitcoin?",
+      "options": [
+        "Reducing the block size by half",
+        "Cutting the mining reward by 50% every 210,000 blocks",
+        "Splitting a transaction into two parts",
+        "Halving the transaction fee automatically"
+      ],
+      "answer": 1,
+      "explanation": "Every 210,000 blocks the block reward is halved, decreasing new supply."
+    },
+    {
+      "question": "Which data structure does Bitcoin use to link blocks together?",
+      "options": [
+        "Linked List",
+        "Merkle Tree",
+        "Binary Search Tree",
+        "Hash Table"
+      ],
+      "answer": 1,
+      "explanation": "Each block contains a Merkle root summarizing all transactions, linking blocks via hashes."
+    },
+    {
+      "question": "What is the typical block time target for Bitcoin?",
+      "options": [
+        "1 minute",
+        "5 minutes",
+        "10 minutes",
+        "15 minutes"
+      ],
+      "answer": 2,
+      "explanation": "Bitcoin aims for an average of one block every 10 minutes."
+    },
+    {
+      "question": "Which of the following is NOT a valid Bitcoin address format?",
+      "options": [
+        "P2PKH (starts with 1)",
+        "P2SH (starts with 3)",
+        "Bech32 (starts with bc1)",
+        "Base64 encoded string"
+      ],
+      "answer": 3,
+      "explanation": "Bitcoin addresses are not Base64; they use Base58Check or Bech32 encoding."
+    },
+    {
+      "question": "In Python, which method of a hashlib.sha256 object returns the digest as a hex string?",
+      "options": [
+        "digest()",
+        "hexdigest()",
+        "hash()",
+        "encode()"
+      ],
+      "answer": 1,
+      "explanation": "hexdigest() returns the hash as a readable hexadecimal string."
+    },
+    {
+      "question": "What is a 'mempool' in Bitcoin terminology?",
+      "options": [
+        "A pool of miners competing for rewards",
+        "A temporary storage for unconfirmed transactions",
+        "A collection of Bitcoin wallets",
+        "A database of blockchain forks"
+      ],
+      "answer": 1,
+      "explanation": "The mempool holds transactions that have been broadcast but not yet included in a block."
+    },
+    {
+      "question": "Which consensus mechanism does Bitcoin use?",
+      "options": [
+        "Proof of Stake",
+        "Proof of Authority",
+        "Proof of Work",
+        "Delegated Proof of Stake"
+      ],
+      "answer": 2,
+      "explanation": "Bitcoin relies on Proof of Work, where miners solve computational puzzles."
+    },
+    {
+      "question": "What is the maximum supply of Bitcoin as defined by the protocol?",
+      "options": [
+        "21 million",
+        "42 million",
+        "100 million",
+        "Unlimited"
+      ],
+      "answer": 0,
+      "explanation": "The protocol caps Bitcoin at 21,000,000 coins."
+    },
+    {
+      "question": "When creating a raw Bitcoin transaction in Python, which field specifies the amount to send?",
+      "options": [
+        "scriptPubKey",
+        "value",
+        "amount",
+        "output"
+      ],
+      "answer": 2,
+      "explanation": "The 'amount' field (in satoshis) defines how many satoshis are transferred to an output."
+    },
+    {
+      "question": "What does the term 'dust' refer to in Bitcoin?",
+      "options": [
+        "A transaction with zero fee",
+        "A very small amount of BTC that is uneconomical to spend",
+        "A corrupted block",
+        "A type of mining hardware"
+      ],
+      "answer": 1,
+      "explanation": "Dust is an output whose value is less than the cost to spend it, making it impractical."
+    },
+    {
+      "question": "Which Python statement correctly imports the ecdsa library for Bitcoin key generation?",
+      "options": [
+        "import ecdsa",
+        "from ecdsa import SigningKey, SECP256k1",
+        "import bitcoin.ecdsa as ecdsa",
+        "from crypto import ecdsa"
+      ],
+      "answer": 1,
+      "explanation": "Bitcoin uses the SECP256k1 curve; importing SigningKey and SECP256k1 is the standard approach."
+    }
+  ]
+}

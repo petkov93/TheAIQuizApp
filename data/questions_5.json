@@ -1,0 +1,59 @@
+{
+  "questions": [
+    {
+      "question": "What is the capital of Australia?",
+      "options": [
+        "Canberra",
+        "Sydney",
+        "Melbourne",
+        "Brisbane"
+      ],
+      "answer": 0,
+      "explanation": "Canberra was selected as the capital in 1908 and is the seat of the Australian government."
+    },
+    {
+      "question": "Which city is the capital of Canada?",
+      "options": [
+        "Toronto",
+        "Ottawa",
+        "Vancouver",
+        "Montreal"
+      ],
+      "answer": 1,
+      "explanation": "Ottawa, located in Ontario, has been the capital of Canada since 1857."
+    },
+    {
+      "question": "The capital of Brazil is?",
+      "options": [
+        "Rio de Janeiro",
+        "S\u00e3o Paulo",
+        "Bras\u00edlia",
+        "Salvador"
+      ],
+      "answer": 2,
+      "explanation": "Bras\u00edlia was purpose\u2011built and inaugurated as the capital in 1960, replacing Rio de Janeiro."
+    },
+    {
+      "question": "Which of these is the capital of Turkey?",
+      "options": [
+        "Istanbul",
+        "Ankara",
+        "Izmir",
+        "Antalya"
+      ],
+      "answer": 1,
+      "explanation": "Ankara became the capital in 1923, replacing Istanbul as the seat of government."
+    },
+    {
+      "question": "What is the capital of Kenya?",
+      "options": [
+        "Nairobi",
+        "Mombasa",
+        "Kisumu",
+        "Nakuru"
+      ],
+      "answer": 0,
+      "explanation": "Nairobi has been Kenya's capital since the colonial era and hosts the national government."
+    }
+  ]
+}
