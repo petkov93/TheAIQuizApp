@@ -37,7 +37,7 @@ class QuestionFetcher:
             "model": self.model,
             # sends the last quiz topic + system prompt.
             "messages": self.history,
-            "temperature": 0.6,
+            "temperature": 0.1,
             "response_format": {"type": "json_object"}}
 
         def call_api():
